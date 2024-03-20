@@ -8,10 +8,10 @@
     <div class="card-body">
         <div class="table-responsive">
             @if( Session::get('masuk') !="")
-            <div class='alert alert-success'><center><b>{{Session::get('masuk')}}</b></center></div>        
+            <div class='alert alert-success'><center><b>{{Session::get('masuk')}}</b></center></div>
             @endif
             @if( Session::get('update') !="")
-            <div class='alert alert-success'><center><b>{{Session::get('update')}}</b></center></div>        
+            <div class='alert alert-success'><center><b>{{Session::get('update')}}</b></center></div>
             @endif
             <div class="row">
                 <div class="col-md-6">
@@ -40,6 +40,7 @@
                     @foreach ($barang as $i => $u)
                     <tr>
                         <td>{{++$i}}</td>
+                        {{-- barcode sedang di buat --}}
                         <td> <img src="data:image/png;base64,{{DNS1D::getBarcodePNG($u->id_barang, 'C39')}}" height="60" width="180"></td>
                         <td>{{$u->id_barang}}</td>
                         <td>{{$u->nama_barang}}</td>
@@ -57,7 +58,6 @@
 
 <div id="tambah" class="modal fade" tabindex="-1" role="dialog">
 <div class="modal-dialog" role="document">
-    <!-- Modal content-->
     <div class="modal-content">
     <div class="modal-header">
         <h4 class="modal-title">Masukan Data</h4>
